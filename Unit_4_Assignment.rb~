@@ -1,0 +1,19 @@
+#!/usr/bin/ruby
+puts "Enter the distance traveled"
+dt=gets.to_i
+puts "Enter number of checked bags"
+b=gets.to_i
+puts "Enter number of meals ordered"
+m=gets.to_i
+puts "Roundtrip desired? [1=yes/0=no]"
+r=gets.to_i
+puts "Is there a Saturday night stayover? [1=yes/0=no]"
+s=gets.to_i
+puts "SMC Student traveler? [1=yes/0=no]"
+ss=gets.to_i
+fare=dt*0.15+b*25+m*10
+printf("Total CostFare %5.2f,\nReductions: %s\n", fare, fare*5/100*r+50+ss*25)
+
+
+T=dt*0.15+b*25+m*10-(fare*5/100*r+50+ss*25)
+puts "Total Cost: $ #{T}"

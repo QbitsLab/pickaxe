@@ -1,0 +1,27 @@
+  def calculfee
+    prompt = '> '
+    arg=[]
+    digits_only=catch (:badarg) do
+    puts "Enter number of units enrolled:", prompt
+
+
+    arg<< no_of_unit_enrolled=$stdin.gets.chomp
+    throw :badarg unless no_of_unit_enrolled =~/^\d\d/
+
+
+    puts "Is this Fall[0], Winter[1], Spring[2] or Summer[3] session:", prompt
+    arg<< session=$stdin.gets.chomp
+    puts "Are you a state resident[0] or not[1]:", prompt
+    arg<<residence_status=$stdin.gets.chomp
+    puts" Want a parking decal? [y/n]:", prompt
+    arg<<parking=$stdin.gets.chomp
+    puts "Want an AS sticker? [y/n]:", prompt
+    arg<<stcker=$stdin.gets.chomp
+    puts "Want an ID card? [y/n]:", prompt
+    arg<<idcard=$stdin.gets.chomp
+    @arg=arg
+  end
+if digits_only
+puts "please input only digits"
+end
+
