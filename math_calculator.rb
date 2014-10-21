@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 #
-#         Auther Dawit Haile Achamyelhe
+#         By Dawit Haile Achamyelhe
 #
 #
 #
@@ -26,23 +26,27 @@ class Math_Calculator
         deviation
       when "C" then
         cleared
+      when "Q" then
+        quit
 
       else
-        puts "ONLY !!! A,C,M,N,Q,or S"
+
         prompt
     end
   end
 
   def inn
     @arr_inputs=gets.chomp
+    input=@arr_inputs.split(" ").map(&:to_i)
+    @avrg=(input.inject(:+)/(input.size).to_f)
     testing @arr_inputs
   end
 
 
   def average
-    input=@arr_inputs.split(" ").map(&:to_i)
-    @avrg=(input.inject(:+)/(input.size).to_f)
+
     puts "the average is:#{@avrg}"
+    prompt
   end
 
   def median
@@ -58,10 +62,13 @@ class Math_Calculator
       @median = medium[odd]
     end
     puts "the median is:#{@median}"
+    prompt
   end
 
   def deviation
-
+  dev = @arr_inputs.split(" ").map(&:to_i).collect {|x| x-@avrg }
+  p Math::sqrt(( dev.map{|x| x*x}.inject(0, &:+))/(dev.size))
+  prompt
   end
 
   def cleared
@@ -70,7 +77,7 @@ class Math_Calculator
   end
 
   def quit
-
+     exit
   end
 end
 calcu=Math_Calculator.new

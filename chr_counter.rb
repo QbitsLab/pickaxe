@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 class Chr_counter
   def in
     puts "Enter Data:"
@@ -5,8 +6,9 @@ class Chr_counter
     str=inn.to_s
     pstr=str.scan(/\w/)
     freq=frequency_counter pstr
-    freq.each do |key, value|
-      print "#{key} - #{value}-"
+    sfreq= Hash[freq.sort_by{|key,value| key}]
+    sfreq.each do |key, value|
+      print "#{key.upcase} - #{value}-"
       puts "x"*value
     end
   end
